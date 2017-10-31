@@ -3,9 +3,7 @@
     <div v-show="!hidden" class="modal-mask" @click.stop="cancel"></div>
     <div class="inner-content fadeIn" :style="{ transform: 'translate3d(-50%, -' + offsetTop + 'px, 0)' }">
       <div class="title" :style="{ textAlign: titleAlign }">标题</div>
-      <div class="slot-content">
-        <slot></slot>
-      </div>
+      <div class="slot-content"><slot></slot></div>
       <div class="foot-btns">
         <span @click.stop="cancel">取消</span><span @click.stop="confirm">确定</span>
       </div>
