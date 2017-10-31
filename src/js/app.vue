@@ -23,7 +23,7 @@
           :cancel = "modalCancel"
         >
           <div class="">
-            hello,world!!!!!!!!!!!!hello
+            hello,world!
           </div>
         </miniModal>
       </div>
