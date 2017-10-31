@@ -6,3 +6,9 @@
 >:confirm="confirmFunction" | 参数值为Function, 点击确定的回调函数
 >:cancel="cancelFunction" | 参数值为Function, 点击取消的回调函数
 >titleAlign="left|center|right" | 参数值为String, 标题的对齐方式，默认left
+| 参数        | 默认值    | 类型      |   描述           |
+| ---------- | -------- | -------  | --------------- |
+| hidden     | true     | Boolean  | 默认隐藏底部遮罩   |
+| confirm    | () => {} | Function | 点击确定的回调函数 |
+| cancel     | () => {} | Function | 点击取消的回调函数 |
+| titleAlign | 'left'   | String   | 标题的对齐方式    |
