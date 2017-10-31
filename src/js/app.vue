@@ -15,7 +15,17 @@
       <div style="padding: 10px;">
         <h5 class="comp-title">对话框组件</h5><br/>
         <miniButton :type="type" @click="modal()">modal出来</miniButton>
-        <miniModal v-if="false"></miniModal>
+        <miniModal
+          v-if = "isModal"
+          titleAlign = "center"
+          :hidden = "false"
+          :confirm = "modalConfirm"
+          :cancel = "modalCancel"
+        >
+          <div class="">
+            hello,world!!!!!!!!!!!!hello
+          </div>
+        </miniModal>
       </div>
       <!-- 上滑弹层组件 -->
       <div style="padding: 10px;">
@@ -65,6 +75,7 @@ export default {
     return {
       type: 'primary',
       isShow: false,
+      isModal: false,
       images: [
         'http://dwz.cn/6CDHuA',
         'http://dwz.cn/6CDHN5',
@@ -92,7 +103,18 @@ export default {
       });
     },
     modal() {
-
+      this.isModal = !this.isModal;
+    },
+    modalConfirm() {
+      this.$miniAlert({
+        msg: '您点击了确定'
+      });
+    },
+    modalCancel() {
+      this.$miniAlert({
+        msg: '你点击了取消'
+      });
+      this.isModal = !this.isModal;
     },
     handleGetVerifiCode(cb) {
       if (true) {

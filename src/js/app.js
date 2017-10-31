@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import ddView from './index';
+import miniView from './index';
 import App from './app.vue';
-Vue.use(ddView);
+Vue.use(miniView);
 
 new Vue({
   el: '#app',
