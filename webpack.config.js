@@ -1,8 +1,8 @@
 /*
- * @coder: 
+ * @coder:
  * @description: ddView 构建输入输出 by Webpack
- * @params: 
- * @return: 
+ * @params:
+ * @return:
 */
 var path = require('path');
 // var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -30,11 +30,11 @@ module.exports = {
         loader: 'style-loader!css-loader!sass-loader'
       },
       {
-        test: /\.(png|jpe?g|svg)(\?.*)?$/,
+        test: /\.(png|jpg)$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: 8192,
-          name: 'img/[name].[hash:7].[ext]'
+          name: 'images/[hash:8].[name].[ext]'
         }
       }
     ]
@@ -42,7 +42,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      'vue$': 'vue/dist/vue.js'
+      'vue$': 'vue/dist/vue.js',
+      '@': path.resolve(__dirname, 'src')
     }
   },
   plugins: [

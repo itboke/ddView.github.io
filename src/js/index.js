@@ -1,12 +1,13 @@
 /*
  * @coder: hzl
- * @description: 
- * @params: 
- * @return: 
+ * @description:
+ * @params:
+ * @return:
 */
 import miniTab from './components/tab';
 import tabItem from './components/tabItem';
 import miniModal from './components/modal';
+import miniLoading from './components/loading';
 import miniButtom from './components/button';
 import miniOverlay from './components/overlay';
 import miniCarousel from './components/carousel';
@@ -19,6 +20,7 @@ const components = {
   tabItem: tabItem,
   miniModal: miniModal,
   miniButton: miniButtom,
+  miniLoading: miniLoading,
   miniOverlay: miniOverlay,
   miniCarousel: miniCarousel,
   miniPagescrolling: miniPageScrolling,

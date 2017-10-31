@@ -1,0 +1,37 @@
+/*
+ * @coder: hzl
+ * @description: 加载图标
+ * @params:
+ * @return:
+*/
+$css-prefix: 'mini';
+.#{$css-prefix}-loading{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 76px;
+  height: 76px;
+  background-color: rgba(0, 0, 0, .7);
+  border-radius: 8px;
+  z-index: 9998;
+  .inner-content{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    .loading-icon {
+      width: 32px;
+      height: 32px;
+      -webkit-animation:loading 1s linear infinite;
+      -moz-animation:loading 1s linear infinite;
+      animation:loading 1s linear infinite;
+    }
+    span {
+      padding-top: 8px;
+      color: #fff;
+    }
+  }
+}

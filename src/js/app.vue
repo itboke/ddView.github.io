@@ -11,6 +11,12 @@
         <h5 class="comp-title">按钮组件</h5><br/>
         <miniButton :type="type" @click="alert()">alert出来</miniButton>
       </div>
+      <!-- loading组件 -->
+      <div style="padding: 10px;">
+        <h5 class="comp-title">加载loading组件</h5><br/>
+        <miniButton :type="type" @click="loading()">loading出来</miniButton>
+        <miniLoading v-show="isLoading" type="herload"></miniLoading>
+      </div>
       <!-- 对话框组件 -->
       <div style="padding: 10px;">
         <h5 class="comp-title">对话框组件</h5><br/>
@@ -76,6 +82,7 @@ export default {
       type: 'primary',
       isShow: false,
       isModal: false,
+      isLoading: false,
       images: [
         'http://dwz.cn/6CDHuA',
         'http://dwz.cn/6CDHN5',
@@ -101,6 +108,9 @@ export default {
       this.$miniAlert({
         msg: 'hello,body,go,go,go'
       });
+    },
+    loading() {
+      this.isLoading = !this.isLoading;
     },
     modal() {
       this.isModal = !this.isModal;

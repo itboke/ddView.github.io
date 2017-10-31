@@ -22,3 +22,14 @@ hidden|true|Boolean|默认隐藏底部遮罩
 confirm|() => {}|Function|点击确定的回调函数
 cancel|() => {}|Function|点击取消的回调函数
 titleAlign|left|String|标题的对齐方式
+
+>2017-10-31 | loading组件 | 1.0完成
+
+```
+<miniLoading v-show="isLoading" type="herload" tips="loading..."></miniLoading>
+
+```
+参数|默认值|类型|描述
+-|-|-|-
+type|meload|String|根据类型的值显示不同loading的图标, (meload|yourload|herload)
+tips|加载中...|String|loading过程中的文字提示
