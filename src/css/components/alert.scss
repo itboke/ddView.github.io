@@ -1,0 +1,39 @@
+@keyframes alertFadeOut {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.bounce {
+  animation-name: alertFadeOut;
+  transform-origin: center bottom;
+}
+.mini-alert {
+    position: fixed;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    left: 50%;
+    top: 50%;
+    .mini-alert__body {
+      position: relative;
+      padding: 5px 10px;
+      width: 200px;
+      z-index: 1001;
+      border-radius: 5px;
+      background-color: #272727;
+      opacity: .7;
+      font-size: 12px;
+      text-align: center;
+      line-height: 16px;
+      transform: translate3d(-50%,-50%,0);
+    }
+    p {
+        display: inline-block;
+        word-break: break-word;
+        color: #fff;
+    }
+}

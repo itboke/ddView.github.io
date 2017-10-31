@@ -1,0 +1,32 @@
+/*
+ * @coder: 
+ * @description: 上滑遮罩弹层
+ * @params: 
+ * @return: 
+*/
+$css-prefix: 'mini';
+.#{$css-prefix}-overlay{
+  &-mask{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+  }
+  &-content{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    transition: transform .5s;
+    transform: translate3d(0, 100%, 0);
+    z-index: 1000;
+  }
+  &-upslide{
+    transform: translate3d(0, 0, 0);
+  }
+}

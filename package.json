@@ -1,0 +1,30 @@
+{
+  "name": "ddview",
+  "version": "1.0.0",
+  "description": "a UI for dd",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "node build.js"
+  },
+  "author": "hzl",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "css-loader": "^0.28.4",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "url-loader": "^0.5.9",
+    "vue": "^2.4.2",
+    "vue-loader": "^12.2.2",
+    "vue-template-compiler": "^2.4.2",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.19.1"
+  }
+}

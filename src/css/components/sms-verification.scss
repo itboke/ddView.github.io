@@ -1,0 +1,28 @@
+.mini-sms-verification {
+  .inner-content {
+    label {
+      display: flex;
+      line-height: 32px;
+    }
+    .field {
+      flex: 1;
+      text-indent: 12px;
+      font-size: 12px;
+      padding: 0;
+      border-radius: 4px 0px 0px 4px;
+      border: 1px solid #d9d9d9;
+    }
+    .btn-text {
+      height: 100%;
+      padding: 0px 25px;
+      background-color: #eee;
+      border-radius: 0px 4px 4px 0px;
+      border: 1px solid #d9d9d9;
+      border-left: none;
+      color: rgba(0,0,0,.85);
+    }
+    .getting {
+      color: #999;
+    }
+  }
+}

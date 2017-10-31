@@ -1,0 +1,15 @@
+/*
+ * @coder: 
+ * @description: 按钮类样式
+ * @params: 
+ * @return: 
+*/
+$css-prefix: 'mini';
+.#{$css-prefix}-btn{
+  border: 0;
+  &-primary{
+    padding: 5px 15px;
+    color: #fff;
+    background: #20a0ff;
+  }
+}
