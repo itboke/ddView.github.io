@@ -17,6 +17,14 @@
         <miniButton :type="type" @click="loading()">loading出来</miniButton>
         <miniLoading v-show="isLoading" type="herload"></miniLoading>
       </div>
+      <!-- 倒计时组件 -->
+      <div style="padding: 10px;">
+        <h5 class="comp-title">倒计时组件</h5><br/>
+        <miniCountdown
+          :startTime="'2017-11-01 10:00:00'"
+          :endTime="'2017-11-03 11:00:00'"
+        ></miniCountdown>
+      </div>
       <!-- 对话框组件 -->
       <div style="padding: 10px;">
         <h5 class="comp-title">对话框组件</h5><br/>

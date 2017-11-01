@@ -33,3 +33,21 @@ titleAlign|left|String|标题的对齐方式
 -|-|-|-
 type|meload|String|根据类型的值显示不同loading的图标, (meload|yourload|herload)
 tips|加载中...|String|loading过程中的文字提示
+
+>2017-11-01 | 倒计时组件 | 1.0未完成
+
+```
+<miniCountdown
+  :startTime="'2017-11-01 10:00:00'"
+  :endTime="'2017-11-03 11:00:00'"
+  :readyCallBack="readyCallBackFunction"
+  :endCallBack="endCallBackFunction"
+></miniCountdown>
+
+```
+参数|默认值|类型|描述
+-|-|-|-
+startTime|必填|String|倒计时开始时间，格式(2017-11-01 12:00:00 或者 时间戳)
+endTime|必填|String|倒计时结束时间, 格式(2017-11-01 12:00:00 或者 时间戳)
+readyCallBack|非必填|Function|倒计时没有开始的回调函数
+endCallBack|非必填|Function|倒计时已经结束的回调函数

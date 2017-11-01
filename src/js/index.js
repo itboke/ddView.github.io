@@ -1,8 +1,8 @@
 /*
  * @coder: hzl
- * @description:
+ * @description: 组件构建
  * @params:
- * @return:
+ * @return: miniView
 */
 import miniTab from './components/tab';
 import tabItem from './components/tabItem';
@@ -11,6 +11,7 @@ import miniLoading from './components/loading';
 import miniButtom from './components/button';
 import miniOverlay from './components/overlay';
 import miniCarousel from './components/carousel';
+import miniCountdown from './components/countdown';
 import miniPageScrolling from './components/page-scrolling';
 import miniSmsVerification from './components/sms-verification';
 import miniAlert from './components/plugins/alert';
@@ -23,6 +24,7 @@ const components = {
   miniLoading: miniLoading,
   miniOverlay: miniOverlay,
   miniCarousel: miniCarousel,
+  miniCountdown: miniCountdown,
   miniPagescrolling: miniPageScrolling,
   miniSmsVerification: miniSmsVerification
 };
