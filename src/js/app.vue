@@ -11,6 +11,12 @@
         <h5 class="comp-title">按钮组件</h5><br/>
         <miniButton :type="type" @click="alert()">alert出来</miniButton>
       </div>
+      <!-- 计算器组件 -->
+      <div style="padding: 10px;">
+        <h5 class="comp-title">计算器组件</h5><br/>
+        <miniCounter></miniCounter>
+        <miniCounter :max="10" v-model="counterValue"></miniCounter>
+      </div>
       <!-- loading组件 -->
       <div style="padding: 10px;">
         <h5 class="comp-title">加载loading组件</h5><br/>
@@ -91,6 +97,7 @@ export default {
       isShow: false,
       isModal: false,
       isLoading: false,
+      counterValue: 1,
       images: [
         'http://dwz.cn/6CDHuA',
         'http://dwz.cn/6CDHN5',
@@ -106,6 +113,11 @@ export default {
           url: '/user/info'
         }
       ]
+    }
+  },
+  watch: {
+    counterValue(value) {
+      console.log(value);
     }
   },
   methods: {

@@ -15,12 +15,14 @@ import miniCountdown from './components/countdown';
 import miniPageScrolling from './components/page-scrolling';
 import miniSmsVerification from './components/sms-verification';
 import miniAlert from './components/plugins/alert';
+import miniCounter from './components/counter';
 import '../css/index.scss';
 const components = {
   miniTab: miniTab,
   tabItem: tabItem,
   miniModal: miniModal,
   miniButton: miniButtom,
+  miniCounter: miniCounter,
   miniLoading: miniLoading,
   miniOverlay: miniOverlay,
   miniCarousel: miniCarousel,
