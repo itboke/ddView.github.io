@@ -17,6 +17,11 @@
         <miniCounter></miniCounter>
         <miniCounter :max="10" v-model="counterValue"></miniCounter>
       </div>
+      <!-- 开关组件 -->
+      <div style="padding: 10px;">
+        <h5 class="comp-title">开关组件</h5><br/>
+        <miniSwitch :onChange="switchOnchange"></miniSwitch>
+      </div>
       <!-- loading组件 -->
       <div style="padding: 10px;">
         <h5 class="comp-title">加载loading组件</h5><br/>
@@ -145,6 +150,9 @@ export default {
         msg: '你点击了取消'
       });
       this.isModal = !this.isModal;
+    },
+    switchOnchange(value) {
+      console.log(value);
     },
     handleGetVerifiCode(cb) {
       if (true) {

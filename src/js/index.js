@@ -10,6 +10,7 @@ import miniModal from './components/modal';
 import miniLoading from './components/loading';
 import miniButtom from './components/button';
 import miniOverlay from './components/overlay';
+import miniSwitch from './components/switch';
 import miniCarousel from './components/carousel';
 import miniCountdown from './components/countdown';
 import miniPageScrolling from './components/page-scrolling';
@@ -25,6 +26,7 @@ const components = {
   miniCounter: miniCounter,
   miniLoading: miniLoading,
   miniOverlay: miniOverlay,
+  miniSwitch: miniSwitch,
   miniCarousel: miniCarousel,
   miniCountdown: miniCountdown,
   miniPagescrolling: miniPageScrolling,

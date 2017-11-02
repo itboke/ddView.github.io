@@ -62,3 +62,13 @@ endCallBack|非必填|Function|倒计时已经结束的回调函数
 -|-|-|-
 max|空|Number|控制最大的数值
 v-model|1|Number|当计算器的值变化的时候，父组件监控的值能够实时更新
+
+>2017-11-02 | 开关(Switch)组件 | 1.0完成
+
+```
+<miniSwitch :onChange="switchOnchange"></miniSwitch>
+
+```
+参数|默认值|类型|描述
+-|-|-|-
+onChange|默认提示函数|Function|改变开关返回开关值的回调函数，返回值为Boolean
