@@ -25,7 +25,7 @@
     },
     watch: {
       numberValue(val) {
-        if (!/^[0-9]*$/.test(val)) {
+        if (!/^[0-9]*$/.test(val) || val > this.max) {
           this.numberValue = 1;
         }
         this.minus = val === 0 ? true : false;
