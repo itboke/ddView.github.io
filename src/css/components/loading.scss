@@ -1,8 +1,6 @@
 /*
  * @coder: hzl
  * @description: 加载图标
- * @params:
- * @return:
 */
 $css-prefix: 'mini';
 .#{$css-prefix}-loading{
@@ -12,7 +10,7 @@ $css-prefix: 'mini';
   transform: translate3d(-50%, -50%, 0);
   width: 76px;
   height: 76px;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: hsla(0,0%,7%,.4);
   border-radius: 8px;
   z-index: 9998;
   .inner-content{

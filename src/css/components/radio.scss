@@ -1,0 +1,30 @@
+.mini-radio {
+  display: inline-block;
+  vertical-align: top;
+  .border {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+  }
+  .check {
+    border-color: #4aa2ff;
+    background-color: #4aa2ff;
+  }
+  .circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: #f35150;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+  }
+  .mini-icon-check {
+    width: 24px;
+    height: 24px;
+  }
+}

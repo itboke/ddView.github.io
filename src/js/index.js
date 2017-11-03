@@ -17,6 +17,7 @@ import miniPageScrolling from './components/page-scrolling';
 import miniSmsVerification from './components/sms-verification';
 import miniAlert from './components/plugins/alert';
 import miniCounter from './components/counter';
+import miniRadio from './components/radio';
 import '../css/index.scss';
 const components = {
   miniTab: miniTab,
@@ -27,6 +28,7 @@ const components = {
   miniLoading: miniLoading,
   miniOverlay: miniOverlay,
   miniSwitch: miniSwitch,
+  miniRadio: miniRadio,
   miniCarousel: miniCarousel,
   miniCountdown: miniCountdown,
   miniPagescrolling: miniPageScrolling,

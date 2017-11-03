@@ -42,7 +42,7 @@
         this.visible = this.onEmit;
         setTimeout(() => {
           this.upslide = this.value;
-        }, 10);
+        }, 100);
       },
       upslideClose() {
         this.upslide = false;

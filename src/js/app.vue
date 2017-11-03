@@ -22,6 +22,11 @@
         <h5 class="comp-title">开关组件</h5><br/>
         <miniSwitch :onChange="switchOnchange"></miniSwitch>
       </div>
+      <!-- 单选组件 -->
+      <div style="padding: 10px;">
+        <h5 class="comp-title">单选组件</h5><br/>
+        <miniRadio :onChange="radioOnchange" :type="'check'"></miniRadio>
+      </div>
       <!-- loading组件 -->
       <div style="padding: 10px;">
         <h5 class="comp-title">加载loading组件</h5><br/>
@@ -152,6 +157,9 @@ export default {
       this.isModal = !this.isModal;
     },
     switchOnchange(value) {
+      console.log(value);
+    },
+    radioOnchange(value) {
       console.log(value);
     },
     handleGetVerifiCode(cb) {
