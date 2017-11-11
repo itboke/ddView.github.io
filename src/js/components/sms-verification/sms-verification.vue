@@ -2,7 +2,7 @@
   <div class="mini-sms-verification">
     <div class="inner-content">
       <label>
-        <input type="text" placeholder="验证码" name="verification" class="field" maxlength="4" />
+    <!--     <input type="text" placeholder="验证码" name="verification" class="field" maxlength="4" v-model="value"/> -->
         <span class="btn-text" :class="flag ? 'getting' : ''" @click.stop="selfGetVerifiCode()">
           {{btnText}}
         </span>
@@ -18,7 +18,7 @@
         default: () => {
           console.warn('外部事件：handleGetVerifiCode 没有定义');
         }
-      }
+      },
     },
     data() {
       return {
@@ -26,14 +26,19 @@
         count: 60,
         timer: null, // 定时器
         flag: false,
+        value: ''
       }; 
     },
     methods: {
+      // outputValue() {
+        
+      // }
       selfGetVerifiCode() {
         if (this.flag) {
           return false;
         }
         this.handleGetVerifiCode(this.eventCallback);
+        // this.eventCallback();
       },
       eventCallback() {
         this.flag = true;

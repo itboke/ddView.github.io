@@ -7,7 +7,7 @@
   </span>
 </template>
 <script>
-  import check from '@/image/check.png';
+  import check from '../../../image/check.png';
   export default {
     props: {
       onChange: {

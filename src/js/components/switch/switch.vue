@@ -9,11 +9,15 @@
         default: () => {
           console.warn('onChange函数没有定义');
         }
+      },
+      defaultValue: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
       return {
-        isActive: false
+        isActive: this.defaultValue
       };
     },
     methods: {

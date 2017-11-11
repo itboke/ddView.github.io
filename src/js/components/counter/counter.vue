@@ -1,11 +1,11 @@
 <template>
-  <div class="mini-counter">
+  <span class="mini-counter">
     <label>
       <span @click.stop="reduce" :class="{ 'disabled': minus }">-</span>
       <input type="text" v-model="numberValue">
       <span @click.stop="add" :class="{ 'disabled': isMax }">+</span>
     </label>
-  </div>
+  </span>
 </template>
 <script>
   export default {
@@ -28,7 +28,7 @@
         if (!/^[0-9]*$/.test(val)) {
           this.numberValue = 1;
         }
-        this.minus = val === 0 ? true : false;
+        this.minus = val === 1 ? true : false;
         if (this.max) {
           if (val === this.max) {
             this.isMax = true;
@@ -47,7 +47,7 @@
         this.numberValue++;
       },
       reduce() {
-        if (this.numberValue === 0) {
+        if (this.numberValue <= 1) {
           return false;
         }
         this.numberValue--;

@@ -1,0 +1,27 @@
+.mini-category {
+  ul {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    li {
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+    }
+    .icons {
+      margin: auto;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+    }
+    .tags {
+      line-height: 1.8;
+    }
+  }
+}

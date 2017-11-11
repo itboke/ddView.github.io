@@ -4,12 +4,13 @@
 */
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var extractLESS = new ExtractTextPlugin('css/[name].css');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
   entry: {
-    index: './src/js/app.js'
+    index: './src/js/index.js'
   },
   output: {
     filename: '[name].js',
@@ -24,11 +25,12 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader:  'babel-loader'
+        loader:  'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader'
+        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
       },
       {
         test: /\.(png|jpg)$/,
@@ -41,7 +43,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue', '.scss'],
     alias: {
       'vue$': 'vue/dist/vue.js',
       '@': path.resolve(__dirname, 'src')
@@ -62,7 +64,7 @@ module.exports = {
         safe: true
       }
     }),
-    new ExtractTextPlugin('css/[name].css'),
+    extractLESS,
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './view/index.html',

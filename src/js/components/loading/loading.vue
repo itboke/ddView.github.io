@@ -7,9 +7,9 @@
   </div>
 </template>
 <script>
-  import meloadImg from '@/image/loading.png';
-  import yourloadImg from '@/image/loading@2.png';
-  import herloadImg from '@/image/loading@3.png';
+  import meloadImg from '../../../image/loading.png';
+  import yourloadImg from '../../../image/loading@2.png';
+  import herloadImg from '../../../image/loading@3.png';
   export default {
     props: {
       tips: {

@@ -7,7 +7,7 @@
   export default {
     name: 'tabItem',
     props: {
-      label: String
-    }
+      label: String,
+    },
   };
 </script>

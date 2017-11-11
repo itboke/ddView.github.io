@@ -1,0 +1,33 @@
+.mini-menubar {
+  background-color: #fff;
+  padding: 15px 10px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  .content {
+    flex: 1;
+  }
+  .rear-icon {
+    position: relative;
+    float: right;
+    &:before{
+      display:block;
+      content:'';
+      border-width:7px 7px 7px 7px;
+      border-style:solid;
+      border-color:transparent transparent transparent #999;
+      z-index: 8;
+    }
+    &:after{
+      display:block;
+      content:'';
+      border-width:6px 6px 6px 6px;
+      border-style:solid;
+      border-color:transparent transparent transparent #fff;
+      position:absolute;
+      left:0px;
+      top:1px;
+      z-index: 9;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="mini-page-scrolling" :style="{ paminiingBottom: pdBottom + 'px' }">
+  <div class="mini-page-scrolling" :style="{ paddingBottom: pdBottom + 'px', paddingTop: pdTop + 'px' }">
     <slot></slot>
   </div>
 </template>
@@ -7,6 +7,9 @@
   export default {
     props: {
       pdBottom: {
+        type: Number
+      },
+      pdTop: {
         type: Number
       }
     }

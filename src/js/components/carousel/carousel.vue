@@ -1,35 +1,55 @@
 <template>
   <div class="mini-carousel" id="mini-carousel">
-    <div class="slider-box"
-      @touchstart="touchStart($event)"
-      @touchmove="touchMove($event)"
-      @touchend="touchEnd($event)"
-      :style="{ transform: 'translate3d(' + sliderLeft + 'px,0,0)', width: totalWidth + 'px' }"
+    <div class="inner-content"
+        :class="{ 'full-slider': isFullscreen }"
+        :style="{ marginTop: mgTop + 'px' }"
     >
-      <div class="slider-item" v-for="item in images" 
-        @click.stop="imageTap($event)"
+      <div
+        class="slider-box"
+        @touchstart="touchStart($event)"
+        @touchmove="touchMove($event)"
+        @touchend="touchEnd($event)"
+        :style="{ transform: 'translate3d(' + sliderLeft + 'px,0,0)', width: totalWidth + 'px' }"
       >
-        <img :src="item" :style="{ width: eleWidth + 'px', height:  '100%' }" />
+        <div class="slider-item" v-for="item in images"
+          @click.stop="imageTap($event)"
+        >
+          <img :src="item" :style="{ width: eleWidth + 'px', height:  '100%' }" />
+        </div>
+      </div>
+      <div class="slider-circle" v-if="images.length > 1">
+        <span v-for="(item, index) in images" :class="{ 'active': index == current }"></span>
+      </div>
+      <div class="large-image" v-if="magnifier" v-show="largeShow" @click.stop="himinienLargeImage">
+        <img :src="largeImgSrc" :style="bigImage" @touchstart="readyToStart($event)"
+              @touchmove="runningToMove($event)" @touchend="cacheEnd($event)">
       </div>
     </div>
-    <div class="slider-circle" v-if="images.length > 1">
-      <span v-for="(item, index) in images" :class="{ 'active': index == current }"></span>
-    </div>
-    <div class="large-image" v-if="magnifier" v-show="largeShow" @click.stop="himinienLargeImage">
-      <img :src="largeImgSrc" :style="bigImage" @touchstart="readyToStart($event)"
-            @touchmove="runningToMove($event)" @touchend="cacheEnd($event)">
-    </div>
+    <div class="full-screen" v-show="isFullscreen" @click.stop="closeFullscreen"></div>
   </div>
 </template>
 <script>
   export default {
     props: {
-      images: Array, // 图片的地址 数组
+      images: { // 图片的地址 数组
+        type: Array,
+        default: () => {
+          return [];
+        }
+      },
       magnifier: { // 是否允许图片使用放大镜效果，图片如果有跳转，不要开启该效果, 默认关闭
         type: Boolean,
         default: false
       },
-      targetLink: Array // 图片的相对跳转地址，目标type: reflesh为页面刷新, vueRoute为采用vueRouter路由系统
+      targetLink: Array, // 图片的相对跳转地址，目标type: reflesh为页面刷新, vueRoute为采用vueRouter路由系统
+      autoPlay: {
+        type: Boolean,
+        default: false
+      },
+      fullscreen: { // 是否开启全屏显示效果
+        type: Boolean,
+        default: false
+      }
     },
     data() {
       return {
@@ -62,20 +82,54 @@
         floatStartX: 0,
         floatStartY: 0,
         rx: 0,
-        ry: 0
+        ry: 0,
+        autoTimer: null,
+        isFullscreen: false,
+        mgTop: 0
       };
     },
-    mounted() {
-      const carousel = document.querySelector('#mini-carousel');
-      this.eleWidth = (document.documentElement.clientWidth || document.body.clientWidth) - carousel.offsetLeft * 2;
-      this.eleHeight = carousel.offsetHeight;
-      this.sliderLength = this.images.length;
-      this.marginLeft = carousel.offsetLeft;
-      this.marginTop = carousel.offsetTop;
-      this.totalWidth = this.eleWidth * this.sliderLength;
+    watch: {
+      images(images) {
+        this.update();
+      }
     },
     methods: {
+      update() {
+        const carousel = document.querySelector('#mini-carousel');
+        this.eleWidth = (document.documentElement.clientWidth || document.body.clientWidth) - carousel.offsetLeft * 2;
+        this.eleHeight = carousel.offsetHeight;
+        this.sliderLength = this.images.length;
+        this.marginLeft = carousel.offsetLeft;
+        this.marginTop = carousel.offsetTop;
+        this.totalWidth = this.eleWidth * this.sliderLength;
+        if (this.autoPlay) {
+          this.autoSwiping(); // 自动滑动
+        }
+      },
+      closeFullscreen() {
+        this.isFullscreen = false;
+        this.mgTop = 0;
+      },
+      handleMiddle() {
+        if (this.isFullscreen) {
+          this.closeFullscreen();
+          return false;
+        }
+        const pageH = document.querySelector('body').clientHeight;
+        this.mgTop = Math.floor(pageH/2) - (this.$el.clientHeight && Math.floor(this.$el.clientHeight / 2));
+        this.isFullscreen = true;
+      },
+      autoSwiping() {
+        this.autoTimer = setInterval(() => {
+          if (this.current >= this.sliderLength - 1) {
+            this.current = -1;
+          }
+          this.current++;
+          this.sliderLeft = -(this.current * this.eleWidth);
+        }, 2500);
+      },
       touchStart(e) {
+        if (this.autoTimer && this.autoPlay) clearInterval(this.autoTimer);
         this.touchPosition(e);
         this.startX = this.position.x;
         this.startY = this.position.y;
@@ -117,6 +171,8 @@
           } else {
             this.sliderLeft = -(this.current * this.eleWidth);
           }
+          // 自动滑动回调
+          if (this.autoPlay) this.autoSwiping();
         }
       },
       touchPosition(e) {
@@ -153,6 +209,10 @@
       },
       imageTap(e) {
         if (!this.magnifier) this.jmpHref();
+        if (this.fullscreen) {
+          this.handleMiddle();
+          return false;
+        }
         const imageObject = new Image();
         imageObject.src = this.images[this.current];
         imageObject.onload = () => {
@@ -167,7 +227,7 @@
       },
       jmpHref() {
         const targetLink = this.targetLink;
-        if (targetLink.length) {
+        if (targetLink && targetLink.length) {
           const type = targetLink[this.current] && targetLink[this.current].type;
           switch (type) {
             case 'reflesh':
@@ -199,7 +259,7 @@
         this.touchPosition(e);
         const moveX = this.position.x - this.floatStartX;
         const moveY = this.position.y - this.floatStartY;
-        
+
         let left = this.rx + moveX;
         let top = this.ry + moveY;
 
