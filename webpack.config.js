@@ -6,7 +6,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 module.exports = {
-  entry: ['webpack-hot-middleware/client?reload=true','./src/js/app.js'],
+  entry: ['webpack-hot-middleware/client?reload=true','./src/app.js'],
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
@@ -47,7 +47,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './view/index.html',
+      template: 'index.html',
       inject: true
     })
   ]

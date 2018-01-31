@@ -20,32 +20,33 @@
     animation-fill-mode: both;
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, .5);
+    box-shadow: 0px 1px 3px 1px rgba(103, 103, 103, 0.2);
     z-index: 1003;
   }
   .title {
-    padding: 12px 10px;
-    font-weight: bold;
+    padding: 12px 12px;
+    font-size: 14px;
   }
   .slot-content {
-    padding: 12px 10px;
+    padding: 18px 24px;
     word-wrap: break-word;
     border-top: 1px solid #ededed;
     border-bottom: 1px solid #ededed;
   }
   .foot-btns {
-    padding: 12px 10px;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
     span {
-      display: inline-block;
-      margin-left: 5px;
-      padding: 7px 17px;
+      margin: 10px 10px 10px 5px;
+      text-align: center;
+      padding: 8px 20px;
       border: 1px solid #ededed;
       border-radius: 4px;
       cursor: pointer;
       &:last-child {
         background-color: #108ee9;
         color: #fff;
+        border-left: 1px solid #ededed;
       }
     }
   }
@@ -53,7 +54,7 @@
 @media (max-width: 768px) {
   .mini-modal {
     .inner-content {
-      width: 240px !important;
+      min-width: 220px !important;
     }
   }
 }

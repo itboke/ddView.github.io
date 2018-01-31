@@ -1,15 +1,27 @@
 /*
- * @coder: 
+ * @coder:
  * @description: 按钮类样式
- * @params: 
- * @return: 
+ * @params:
+ * @return:
 */
 $css-prefix: 'mini';
 .#{$css-prefix}-btn{
+  padding: 8px 32px;
   border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  &-default {
+    background-color: #fff;
+    border: 1px solid #d8dce5;
+  }
   &-primary{
-    padding: 5px 15px;
     color: #fff;
-    background: #20a0ff;
+    background: #ED8E94;
+    border: 1px solid #ED8E94;
+  }
+  &-disabled {
+    color: #bbb;
+    background: #ececec;
+    cursor: not-allowed;
   }
 }

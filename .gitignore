@@ -1,1 +1,6 @@
 node_modules/
+config.js
+dev.js
+index.html
+webpack.config.js
+build/

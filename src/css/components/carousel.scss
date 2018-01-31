@@ -16,16 +16,18 @@
   }
   .slider-box {
     position: relative;
-    transition: transform .8s ease-in-out;
+    transition: transform .5s linear;
     cursor: pointer;
   }
   .full-slider {
     z-index: 100;
+    position: fixed;
+    width: 100%;
   }
   .slider-item {
     position: relative;
     float: left;
-    height: 180px;
+    height: auto;
   }
   .slider-circle {
     display: flex;
